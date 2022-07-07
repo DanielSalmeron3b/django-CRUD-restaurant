@@ -1,0 +1,20 @@
+{% extends "base.html" %} <!-- Including the base template -->
+
+{% block title %} Start {% endblock %}
+
+
+{% block content %} 
+
+<div class="p-5 bg-light">
+    <div class="container">
+        <h1 class="display-3">Welcome to the restaurant website</h1>
+        <p class="lead">Start to add some dishes</p>
+        <hr class="my-2">
+        <p class="lead">
+            <a name="" id="" class="btn btn-primary" href="{% url 'menu' %}" role="button">Start</a>
+        </p>
+    </div>
+</div> 
+
+{% endblock %}
+

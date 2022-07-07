@@ -1,0 +1,49 @@
+{% extends "base.html" %} <!-- Including the base template -->
+
+{% block title %} Menu {% endblock %}
+
+
+{% block content %} 
+
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-success" href="{% url 'create' %}" role="button">Add new dish</a>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Food</h4>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Image</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for dish in dishes %}
+                <tr>
+                    <td>{{ dish.id }}</td>
+                    <td>{{ dish.title }}</td>
+                    <td>
+                        <img src="{{ dish.image.url }}" width="200px" alt="">
+                    </td>
+                    <td>{{ dish.description }}</td>
+                    <td>
+                        <a name="" id="" class="btn btn-info" href="{% url 'edit' dish.id %}" role="button">Edit</a>
+                        <a name="" id="" class="btn btn-danger" href="{% url 'delete' dish.id %}" role="button">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+        
+    </div>
+</div>
+
+{% endblock %}
+

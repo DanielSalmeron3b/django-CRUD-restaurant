@@ -1,0 +1,34 @@
+<form  enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+
+    {% for form in forms %}
+    <div class="mb-3">
+
+        <label for="" class="form-label">{{ form.label }}</label>
+
+        {% if form.field.widget.input_type == 'file' and form.value %}
+
+        <br/>
+        <img src="{{MEDIA_URL}}/images/{{form.value}}" width="80px" alt="">
+        <br/>
+
+        {% endif %}
+
+        <input 
+        type="{{ form.field.widget.input_type }}"
+        class="form-control" 
+        name="{{ form.name }}" 
+        id="" 
+        aria-describedby="helpId" 
+        placeholder="{{ form.label }}" 
+        value="{{ form.value | default:'' }}"
+        />
+
+    </div>
+    <div class="col-12 help-text">{{form.errors}}</div>
+    {% endfor %}
+
+    <input name="" id="" class="btn btn-success" type="submit" value="Submit">
+    <a name="" id="" class="btn btn-primary" href="{% url 'menu' %}" role="button">Cancel</a>
+
+</form>

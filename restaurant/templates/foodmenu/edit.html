@@ -1,0 +1,24 @@
+{% extends "base.html" %} <!-- Including the base template -->
+
+{% block title %} Edit a new dish {% endblock %}
+
+
+{% block content %} 
+
+<div class="card">
+    <div class="card-header">
+        Edit the info of a dish
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Dish info</h4>
+
+        {% include 'foodmenu/form.html' %}
+
+    </div>
+    <div class="card-footer text-muted">
+        
+    </div>
+</div>
+
+{% endblock %}
+
